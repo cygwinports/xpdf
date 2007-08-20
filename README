@@ -1,0 +1,262 @@
+xpdf
+------------------------------------------
+Xpdf is an open source viewer for Portable Document Format (PDF) files. 
+The Xpdf project also includes a PDF text extractor, PDF-to-PostScript 
+converter, and various other utilities.
+
+Runtime requirements:
+  cygwin-1.5.24-2
+  libX11_6-1.1.3-1
+  libXm2-0.95.0-1
+  libXt6-1.0.5-1
+  libfreetype26-2.3.5-1
+  t1lib-5.1.1-1
+
+Build requirements:
+(besides corresponding -devel packages)
+  cygwin-1.5.24-2
+  binutils-20060817-1
+  cygport-0.3.5-1
+  gawk-3.1.5-4
+  gcc-core-3.4.4-3
+  gcc-g++-3.4.4-3
+  make-3.81-1
+  sed-4.1.5-2
+
+Canonical website:
+  http://www.foolabs.com/xpdf/
+
+Canonical download:
+  ftp://ftp.foolabs.com/pub/xpdf/
+
+-------------------------------------------
+
+Build instructions:
+  unpack xpdf-3.02-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./xpdf-3.02-X.cygport all
+
+This will create:
+  /usr/src/xpdf-3.02-X-src.tar.bz2
+  /usr/src/xpdf-3.02-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+  /etc/defaults/etc/xpdfrc
+  /etc/postinstall/xpdf.sh
+  /usr/bin/pdffonts.exe
+  /usr/bin/pdfimages.exe
+  /usr/bin/pdfinfo.exe
+  /usr/bin/pdftoppm.exe
+  /usr/bin/pdftops.exe
+  /usr/bin/pdftotext.exe
+  /usr/bin/xpdf.exe
+  /usr/share/doc/Cygwin/xpdf-3.02.README
+  /usr/share/doc/xpdf-3.02/ANNOUNCE
+  /usr/share/doc/xpdf-3.02/COPYING
+  /usr/share/doc/xpdf-3.02/Changes
+  /usr/share/doc/xpdf-3.02/INSTALL
+  /usr/share/doc/xpdf-3.02/README
+  /usr/share/man/man1/pdffonts.1.gz
+  /usr/share/man/man1/pdfimages.1.gz
+  /usr/share/man/man1/pdfinfo.1.gz
+  /usr/share/man/man1/pdftoppm.1.gz
+  /usr/share/man/man1/pdftops.1.gz
+  /usr/share/man/man1/pdftotext.1.gz
+  /usr/share/man/man1/xpdf.1.gz
+  /usr/share/man/man5/xpdfrc.5.gz
+  /usr/share/xpdf/arabic/ISO-8859-6.unicodeMap
+  /usr/share/xpdf/chinese-simplified/Adobe-GB1.cidToUnicode
+  /usr/share/xpdf/chinese-simplified/CMap/Adobe-GB1-0
+  /usr/share/xpdf/chinese-simplified/CMap/Adobe-GB1-1
+  /usr/share/xpdf/chinese-simplified/CMap/Adobe-GB1-2
+  /usr/share/xpdf/chinese-simplified/CMap/Adobe-GB1-3
+  /usr/share/xpdf/chinese-simplified/CMap/Adobe-GB1-4
+  /usr/share/xpdf/chinese-simplified/CMap/Adobe-GB1-UCS2
+  /usr/share/xpdf/chinese-simplified/CMap/GB-EUC-H
+  /usr/share/xpdf/chinese-simplified/CMap/GB-EUC-V
+  /usr/share/xpdf/chinese-simplified/CMap/GB-H
+  /usr/share/xpdf/chinese-simplified/CMap/GB-V
+  /usr/share/xpdf/chinese-simplified/CMap/GBK-EUC-H
+  /usr/share/xpdf/chinese-simplified/CMap/GBK-EUC-UCS2
+  /usr/share/xpdf/chinese-simplified/CMap/GBK-EUC-V
+  /usr/share/xpdf/chinese-simplified/CMap/GBK2K-H
+  /usr/share/xpdf/chinese-simplified/CMap/GBK2K-V
+  /usr/share/xpdf/chinese-simplified/CMap/GBKp-EUC-H
+  /usr/share/xpdf/chinese-simplified/CMap/GBKp-EUC-V
+  /usr/share/xpdf/chinese-simplified/CMap/GBT-EUC-H
+  /usr/share/xpdf/chinese-simplified/CMap/GBT-EUC-V
+  /usr/share/xpdf/chinese-simplified/CMap/GBT-H
+  /usr/share/xpdf/chinese-simplified/CMap/GBT-V
+  /usr/share/xpdf/chinese-simplified/CMap/GBTpc-EUC-H
+  /usr/share/xpdf/chinese-simplified/CMap/GBTpc-EUC-V
+  /usr/share/xpdf/chinese-simplified/CMap/GBpc-EUC-H
+  /usr/share/xpdf/chinese-simplified/CMap/GBpc-EUC-UCS2
+  /usr/share/xpdf/chinese-simplified/CMap/GBpc-EUC-UCS2C
+  /usr/share/xpdf/chinese-simplified/CMap/GBpc-EUC-V
+  /usr/share/xpdf/chinese-simplified/CMap/UniGB-UCS2-H
+  /usr/share/xpdf/chinese-simplified/CMap/UniGB-UCS2-V
+  /usr/share/xpdf/chinese-simplified/CMap/UniGB-UTF16-H
+  /usr/share/xpdf/chinese-simplified/CMap/UniGB-UTF16-V
+  /usr/share/xpdf/chinese-simplified/CMap/UniGB-UTF8-H
+  /usr/share/xpdf/chinese-simplified/CMap/UniGB-UTF8-V
+  /usr/share/xpdf/chinese-simplified/EUC-CN.unicodeMap
+  /usr/share/xpdf/chinese-simplified/GBK.unicodeMap
+  /usr/share/xpdf/chinese-simplified/ISO-2022-CN.unicodeMap
+  /usr/share/xpdf/chinese-traditional/Adobe-CNS1.cidToUnicode
+  /usr/share/xpdf/chinese-traditional/Big5.unicodeMap
+  /usr/share/xpdf/chinese-traditional/Big5ascii.unicodeMap
+  /usr/share/xpdf/chinese-traditional/CMap/Adobe-CNS1-0
+  /usr/share/xpdf/chinese-traditional/CMap/Adobe-CNS1-1
+  /usr/share/xpdf/chinese-traditional/CMap/Adobe-CNS1-2
+  /usr/share/xpdf/chinese-traditional/CMap/Adobe-CNS1-3
+  /usr/share/xpdf/chinese-traditional/CMap/Adobe-CNS1-UCS2
+  /usr/share/xpdf/chinese-traditional/CMap/B5-H
+  /usr/share/xpdf/chinese-traditional/CMap/B5-V
+  /usr/share/xpdf/chinese-traditional/CMap/B5pc-H
+  /usr/share/xpdf/chinese-traditional/CMap/B5pc-UCS2
+  /usr/share/xpdf/chinese-traditional/CMap/B5pc-UCS2C
+  /usr/share/xpdf/chinese-traditional/CMap/B5pc-V
+  /usr/share/xpdf/chinese-traditional/CMap/CNS-EUC-H
+  /usr/share/xpdf/chinese-traditional/CMap/CNS-EUC-V
+  /usr/share/xpdf/chinese-traditional/CMap/CNS1-H
+  /usr/share/xpdf/chinese-traditional/CMap/CNS1-V
+  /usr/share/xpdf/chinese-traditional/CMap/CNS2-H
+  /usr/share/xpdf/chinese-traditional/CMap/CNS2-V
+  /usr/share/xpdf/chinese-traditional/CMap/ETHK-B5-H
+  /usr/share/xpdf/chinese-traditional/CMap/ETHK-B5-V
+  /usr/share/xpdf/chinese-traditional/CMap/ETen-B5-H
+  /usr/share/xpdf/chinese-traditional/CMap/ETen-B5-UCS2
+  /usr/share/xpdf/chinese-traditional/CMap/ETen-B5-V
+  /usr/share/xpdf/chinese-traditional/CMap/ETenms-B5-H
+  /usr/share/xpdf/chinese-traditional/CMap/ETenms-B5-V
+  /usr/share/xpdf/chinese-traditional/CMap/HKdla-B5-H
+  /usr/share/xpdf/chinese-traditional/CMap/HKdla-B5-V
+  /usr/share/xpdf/chinese-traditional/CMap/HKdlb-B5-H
+  /usr/share/xpdf/chinese-traditional/CMap/HKdlb-B5-V
+  /usr/share/xpdf/chinese-traditional/CMap/HKgccs-B5-H
+  /usr/share/xpdf/chinese-traditional/CMap/HKgccs-B5-V
+  /usr/share/xpdf/chinese-traditional/CMap/HKm314-B5-H
+  /usr/share/xpdf/chinese-traditional/CMap/HKm314-B5-V
+  /usr/share/xpdf/chinese-traditional/CMap/HKm471-B5-H
+  /usr/share/xpdf/chinese-traditional/CMap/HKm471-B5-V
+  /usr/share/xpdf/chinese-traditional/CMap/HKscs-B5-H
+  /usr/share/xpdf/chinese-traditional/CMap/HKscs-B5-V
+  /usr/share/xpdf/chinese-traditional/CMap/UniCNS-UCS2-H
+  /usr/share/xpdf/chinese-traditional/CMap/UniCNS-UCS2-V
+  /usr/share/xpdf/chinese-traditional/CMap/UniCNS-UTF16-H
+  /usr/share/xpdf/chinese-traditional/CMap/UniCNS-UTF16-V
+  /usr/share/xpdf/chinese-traditional/CMap/UniCNS-UTF8-H
+  /usr/share/xpdf/chinese-traditional/CMap/UniCNS-UTF8-V
+  /usr/share/xpdf/cyrillic/Bulgarian.nameToUnicode
+  /usr/share/xpdf/cyrillic/KOI8-R.unicodeMap
+  /usr/share/xpdf/greek/Greek.nameToUnicode
+  /usr/share/xpdf/greek/ISO-8859-7.unicodeMap
+  /usr/share/xpdf/hebrew/ISO-8859-8.unicodeMap
+  /usr/share/xpdf/hebrew/Windows-1255.unicodeMap
+  /usr/share/xpdf/japanese/Adobe-Japan1.cidToUnicode
+  /usr/share/xpdf/japanese/CMap/78-EUC-H
+  /usr/share/xpdf/japanese/CMap/78-EUC-V
+  /usr/share/xpdf/japanese/CMap/78-H
+  /usr/share/xpdf/japanese/CMap/78-RKSJ-H
+  /usr/share/xpdf/japanese/CMap/78-RKSJ-V
+  /usr/share/xpdf/japanese/CMap/78-V
+  /usr/share/xpdf/japanese/CMap/78ms-RKSJ-H
+  /usr/share/xpdf/japanese/CMap/78ms-RKSJ-V
+  /usr/share/xpdf/japanese/CMap/83pv-RKSJ-H
+  /usr/share/xpdf/japanese/CMap/90ms-RKSJ-H
+  /usr/share/xpdf/japanese/CMap/90ms-RKSJ-UCS2
+  /usr/share/xpdf/japanese/CMap/90ms-RKSJ-V
+  /usr/share/xpdf/japanese/CMap/90msp-RKSJ-H
+  /usr/share/xpdf/japanese/CMap/90msp-RKSJ-V
+  /usr/share/xpdf/japanese/CMap/90pv-RKSJ-H
+  /usr/share/xpdf/japanese/CMap/90pv-RKSJ-UCS2
+  /usr/share/xpdf/japanese/CMap/90pv-RKSJ-UCS2C
+  /usr/share/xpdf/japanese/CMap/90pv-RKSJ-V
+  /usr/share/xpdf/japanese/CMap/Add-H
+  /usr/share/xpdf/japanese/CMap/Add-RKSJ-H
+  /usr/share/xpdf/japanese/CMap/Add-RKSJ-V
+  /usr/share/xpdf/japanese/CMap/Add-V
+  /usr/share/xpdf/japanese/CMap/Adobe-Japan1-0
+  /usr/share/xpdf/japanese/CMap/Adobe-Japan1-1
+  /usr/share/xpdf/japanese/CMap/Adobe-Japan1-2
+  /usr/share/xpdf/japanese/CMap/Adobe-Japan1-3
+  /usr/share/xpdf/japanese/CMap/Adobe-Japan1-4
+  /usr/share/xpdf/japanese/CMap/Adobe-Japan1-UCS2
+  /usr/share/xpdf/japanese/CMap/EUC-H
+  /usr/share/xpdf/japanese/CMap/EUC-V
+  /usr/share/xpdf/japanese/CMap/Ext-H
+  /usr/share/xpdf/japanese/CMap/Ext-RKSJ-H
+  /usr/share/xpdf/japanese/CMap/Ext-RKSJ-V
+  /usr/share/xpdf/japanese/CMap/Ext-V
+  /usr/share/xpdf/japanese/CMap/H
+  /usr/share/xpdf/japanese/CMap/Hankaku
+  /usr/share/xpdf/japanese/CMap/Hiragana
+  /usr/share/xpdf/japanese/CMap/Katakana
+  /usr/share/xpdf/japanese/CMap/NWP-H
+  /usr/share/xpdf/japanese/CMap/NWP-V
+  /usr/share/xpdf/japanese/CMap/RKSJ-H
+  /usr/share/xpdf/japanese/CMap/RKSJ-V
+  /usr/share/xpdf/japanese/CMap/Roman
+  /usr/share/xpdf/japanese/CMap/UniJIS-UCS2-H
+  /usr/share/xpdf/japanese/CMap/UniJIS-UCS2-HW-H
+  /usr/share/xpdf/japanese/CMap/UniJIS-UCS2-HW-V
+  /usr/share/xpdf/japanese/CMap/UniJIS-UCS2-V
+  /usr/share/xpdf/japanese/CMap/UniJIS-UTF16-H
+  /usr/share/xpdf/japanese/CMap/UniJIS-UTF16-V
+  /usr/share/xpdf/japanese/CMap/UniJIS-UTF8-H
+  /usr/share/xpdf/japanese/CMap/UniJIS-UTF8-V
+  /usr/share/xpdf/japanese/CMap/UniJISPro-UCS2-HW-V
+  /usr/share/xpdf/japanese/CMap/UniJISPro-UCS2-V
+  /usr/share/xpdf/japanese/CMap/UniJISPro-UTF8-V
+  /usr/share/xpdf/japanese/CMap/V
+  /usr/share/xpdf/japanese/CMap/WP-Symbol
+  /usr/share/xpdf/japanese/EUC-JP.unicodeMap
+  /usr/share/xpdf/japanese/ISO-2022-JP.unicodeMap
+  /usr/share/xpdf/japanese/Shift-JIS.unicodeMap
+  /usr/share/xpdf/korean/Adobe-Korea1.cidToUnicode
+  /usr/share/xpdf/korean/CMap/Adobe-Korea1-0
+  /usr/share/xpdf/korean/CMap/Adobe-Korea1-1
+  /usr/share/xpdf/korean/CMap/Adobe-Korea1-2
+  /usr/share/xpdf/korean/CMap/Adobe-Korea1-UCS2
+  /usr/share/xpdf/korean/CMap/KSC-EUC-H
+  /usr/share/xpdf/korean/CMap/KSC-EUC-V
+  /usr/share/xpdf/korean/CMap/KSC-H
+  /usr/share/xpdf/korean/CMap/KSC-Johab-H
+  /usr/share/xpdf/korean/CMap/KSC-Johab-V
+  /usr/share/xpdf/korean/CMap/KSC-V
+  /usr/share/xpdf/korean/CMap/KSCms-UHC-H
+  /usr/share/xpdf/korean/CMap/KSCms-UHC-HW-H
+  /usr/share/xpdf/korean/CMap/KSCms-UHC-HW-V
+  /usr/share/xpdf/korean/CMap/KSCms-UHC-UCS2
+  /usr/share/xpdf/korean/CMap/KSCms-UHC-V
+  /usr/share/xpdf/korean/CMap/KSCpc-EUC-H
+  /usr/share/xpdf/korean/CMap/KSCpc-EUC-UCS2
+  /usr/share/xpdf/korean/CMap/KSCpc-EUC-UCS2C
+  /usr/share/xpdf/korean/CMap/KSCpc-EUC-V
+  /usr/share/xpdf/korean/CMap/UniKS-UCS2-H
+  /usr/share/xpdf/korean/CMap/UniKS-UCS2-V
+  /usr/share/xpdf/korean/CMap/UniKS-UTF16-H
+  /usr/share/xpdf/korean/CMap/UniKS-UTF16-V
+  /usr/share/xpdf/korean/CMap/UniKS-UTF8-H
+  /usr/share/xpdf/korean/CMap/UniKS-UTF8-V
+  /usr/share/xpdf/korean/ISO-2022-KR.unicodeMap
+  /usr/share/xpdf/latin2/Latin2.unicodeMap
+  /usr/share/xpdf/thai/TIS-620.unicodeMap
+  /usr/share/xpdf/thai/Thai.nameToUnicode
+  /usr/share/xpdf/turkish/ISO-8859-9.unicodeMap
+
+------------------
+
+Port Notes:
+
+----- version 3.02-1 -----
+Initial release for Cygwin.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/

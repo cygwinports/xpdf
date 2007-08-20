@@ -1,0 +1,6 @@
+category: Graphics
+requires: cygwin libX11_6 libXm2 libXt6 libfreetype26 t1lib
+sdesc: "X11 PDF viewer and utilities"
+ldesc: "Xpdf is an open source viewer for Portable Document Format (PDF) 
+files. The Xpdf project also includes a PDF text extractor, 
+PDF-to-PostScript converter, and various other utilities."
