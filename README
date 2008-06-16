@@ -5,19 +5,19 @@ The Xpdf project also includes a PDF text extractor, PDF-to-PostScript
 converter, and various other utilities.
 
 Runtime requirements:
-  cygwin-1.5.24-2
+  cygwin-1.5.25-11
   libX11_6-1.1.3-1
   libXm2-0.95.0-1
   libXt6-1.0.5-1
   libfreetype26-2.3.5-1
-  t1lib-5.1.1-1
+  libpaper1-1.1.23-1
+  t1lib5-5.1.2-1
 
 Build requirements:
 (besides corresponding -devel packages)
-  cygwin-1.5.24-2
-  binutils-20060817-1
-  cygport-0.3.7-1
-  gawk-3.1.5-4
+  binutils-20080523-1
+  cygport-0.3.11-1
+  gawk-3.1.6-1
   gcc-core-3.4.4-3
   gcc-g++-3.4.4-3
   make-3.81-1
@@ -48,25 +48,12 @@ Files included in the binary package:
 
   /etc/defaults/etc/xpdfrc
   /etc/postinstall/xpdf.sh
-  /usr/bin/pdffonts.exe
-  /usr/bin/pdfimages.exe
-  /usr/bin/pdfinfo.exe
-  /usr/bin/pdftoppm.exe
-  /usr/bin/pdftops.exe
-  /usr/bin/pdftotext.exe
   /usr/bin/xpdf.exe
-  /usr/share/doc/Cygwin/xpdf-3.02.README
   /usr/share/doc/xpdf-3.02/ANNOUNCE
   /usr/share/doc/xpdf-3.02/COPYING
   /usr/share/doc/xpdf-3.02/Changes
   /usr/share/doc/xpdf-3.02/INSTALL
   /usr/share/doc/xpdf-3.02/README
-  /usr/share/man/man1/pdffonts.1.gz
-  /usr/share/man/man1/pdfimages.1.gz
-  /usr/share/man/man1/pdfinfo.1.gz
-  /usr/share/man/man1/pdftoppm.1.gz
-  /usr/share/man/man1/pdftops.1.gz
-  /usr/share/man/man1/pdftotext.1.gz
   /usr/share/man/man1/xpdf.1.gz
   /usr/share/man/man5/xpdfrc.5.gz
   /usr/share/xpdf/arabic/ISO-8859-6.unicodeMap
@@ -253,6 +240,9 @@ Files included in the binary package:
 ------------------
 
 Port Notes:
+
+----- version 3.02-3 -----
+Command line programs now provided by poppler.
 
 ----- version 3.02-2 -----
 Updated to patch level 2.
