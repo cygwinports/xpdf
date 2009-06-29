@@ -1,5 +1,5 @@
 category: Graphics
-requires: cygwin libX11_6 libXm2 libXt6 libfreetype26 libpaper1 t1lib5 poppler
+requires: libX11_6 libXm2 libXt6 libfreetype26 libpaper1 t1lib5 poppler
 sdesc: "X11 PDF viewer and utilities"
 ldesc: "Xpdf is an open source viewer for Portable Document Format (PDF) 
 files. The Xpdf project also includes a PDF text extractor, 
