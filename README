@@ -5,22 +5,23 @@ The Xpdf project also includes a PDF text extractor, PDF-to-PostScript
 converter, and various other utilities.
 
 Runtime requirements:
-  cygwin-1.5.25-11
-  libX11_6-1.1.3-1
-  libXm2-0.95.0-1
-  libXt6-1.0.5-1
-  libfreetype26-2.3.5-1
-  libpaper1-1.1.23-1
+  cygwin-1.7.0-50
+  libfreetype6-2.3.9-1
+  libgcc1-4.3.2-2
+  libstdc++6-4.3.2-2
+  libX11_6-1.2.1-1
+  libXm2-0.95.2-1
+  libXt6-1.0.6-1
   t1lib5-5.1.2-1
 
 Build requirements:
 (besides corresponding -devel packages)
-  binutils-20080523-1
-  cygport-0.3.11-1
-  gawk-3.1.6-1
-  gcc-core-3.4.4-3
-  gcc-g++-3.4.4-3
-  make-3.81-1
+  binutils-20080624-2
+  cygport-0.9.7-1
+  gawk-3.1.6-2
+  gcc4-core-4.3.2-2
+  gcc4-g++-4.3.2-2
+  make-3.81-2
   sed-4.1.5-2
 
 Canonical website:
@@ -49,11 +50,10 @@ Files included in the binary package:
   /etc/defaults/etc/xpdfrc
   /etc/postinstall/xpdf.sh
   /usr/bin/xpdf.exe
-  /usr/share/doc/xpdf-3.02/ANNOUNCE
-  /usr/share/doc/xpdf-3.02/COPYING
-  /usr/share/doc/xpdf-3.02/Changes
-  /usr/share/doc/xpdf-3.02/INSTALL
-  /usr/share/doc/xpdf-3.02/README
+  /usr/share/doc/xpdf/ANNOUNCE
+  /usr/share/doc/xpdf/COPYING
+  /usr/share/doc/xpdf/Changes
+  /usr/share/doc/xpdf/README
   /usr/share/man/man1/xpdf.1.gz
   /usr/share/man/man5/xpdfrc.5.gz
   /usr/share/xpdf/arabic/ISO-8859-6.unicodeMap
@@ -241,14 +241,9 @@ Files included in the binary package:
 
 Port Notes:
 
------ version 3.02-3 -----
-Command line programs now provided by poppler.
-
------ version 3.02-2 -----
-Updated to patch level 2.
-
------ version 3.02-1 -----
-Initial release for Cygwin.
+----- version 3.02-4 -----
+Initial release for Cygwin 1.7, including upstream patches 1-3.
+Command line programs are provided by poppler.
 
 
 Cygwin port maintained by:
