@@ -19,6 +19,7 @@ PATCH_URI="
 	ftp://ftp.foolabs.com/pub/xpdf/${P}pl1.patch
 	ftp://ftp.foolabs.com/pub/xpdf/${P}pl2.patch
 	ftp://ftp.foolabs.com/pub/xpdf/${P}pl3.patch
+	ftp://ftp.foolabs.com/pub/xpdf/${P}pl4.patch
 "
 
 src_compile() {
