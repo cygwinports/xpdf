@@ -1,8 +1,7 @@
 DESCRIPTION="X11 PDF viewer"
 HOMEPAGE="http://www.foolabs.com/xpdf/home.html"
 SRC_URI="
-	ftp://ftp.foolabs.com/pub/xpdf/${P}.tar.gz
-	ftp://ftp.foolabs.com/pub/xpdf/${P}.tar.gz.sig
+	ftp://ftp.foolabs.com/pub/xpdf/${P%pl*}.tar.gz
 	ftp://ftp.foolabs.com/pub/xpdf/xpdf-arabic-2003-feb-16.tar.gz
 	ftp://ftp.foolabs.com/pub/xpdf/xpdf-chinese-simplified-2004-jul-27.tar.gz
 	ftp://ftp.foolabs.com/pub/xpdf/xpdf-chinese-traditional-2004-jul-27.tar.gz
@@ -15,12 +14,12 @@ SRC_URI="
 	ftp://ftp.foolabs.com/pub/xpdf/xpdf-thai-2002-jan-16.tar.gz
 	ftp://ftp.foolabs.com/pub/xpdf/xpdf-turkish-2002-apr-10.tar.gz
 "
-PATCH_URI="
-	ftp://ftp.foolabs.com/pub/xpdf/${P}pl1.patch
-	ftp://ftp.foolabs.com/pub/xpdf/${P}pl2.patch
-	ftp://ftp.foolabs.com/pub/xpdf/${P}pl3.patch
-	ftp://ftp.foolabs.com/pub/xpdf/${P}pl4.patch
-"
+SRC_DIR=${P%pl*}
+
+for pl in $(seq 1 ${PV##*pl})
+do
+	PATCH_URI+=" ftp://ftp.foolabs.com/pub/xpdf/${P%pl*}pl${pl}.patch"
+done
 
 src_compile() {
 	cd ${S}
@@ -37,9 +36,6 @@ src_install() {
 	cyginstall
 
 	rm -fr ${D}/usr/{bin,share/man/man1}/pdf*
-
-	# .exe handling
-	strip ${D}/usr/bin/*
 
 	for l in arabic chinese-simplified chinese-traditional cyrillic greek \
 	         hebrew japanese korean latin2 thai turkish
