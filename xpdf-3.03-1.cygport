@@ -2,24 +2,27 @@ DESCRIPTION="X11 PDF viewer"
 HOMEPAGE="http://www.foolabs.com/xpdf/home.html"
 SRC_URI="
 	ftp://ftp.foolabs.com/pub/xpdf/${P%pl*}.tar.gz
-	ftp://ftp.foolabs.com/pub/xpdf/xpdf-arabic-2003-feb-16.tar.gz
-	ftp://ftp.foolabs.com/pub/xpdf/xpdf-chinese-simplified-2004-jul-27.tar.gz
-	ftp://ftp.foolabs.com/pub/xpdf/xpdf-chinese-traditional-2004-jul-27.tar.gz
-	ftp://ftp.foolabs.com/pub/xpdf/xpdf-cyrillic-2003-jun-28.tar.gz
-	ftp://ftp.foolabs.com/pub/xpdf/xpdf-greek-2003-jun-28.tar.gz
-	ftp://ftp.foolabs.com/pub/xpdf/xpdf-hebrew-2003-feb-16.tar.gz
-	ftp://ftp.foolabs.com/pub/xpdf/xpdf-japanese-2004-jul-27.tar.gz
-	ftp://ftp.foolabs.com/pub/xpdf/xpdf-korean-2005-jul-07.tar.gz
-	ftp://ftp.foolabs.com/pub/xpdf/xpdf-latin2-2002-oct-22.tar.gz
-	ftp://ftp.foolabs.com/pub/xpdf/xpdf-thai-2002-jan-16.tar.gz
-	ftp://ftp.foolabs.com/pub/xpdf/xpdf-turkish-2002-apr-10.tar.gz
+	ftp://ftp.foolabs.com/pub/xpdf/xpdf-arabic.tar.gz
+	ftp://ftp.foolabs.com/pub/xpdf/xpdf-chinese-simplified.tar.gz
+	ftp://ftp.foolabs.com/pub/xpdf/xpdf-chinese-traditional.tar.gz
+	ftp://ftp.foolabs.com/pub/xpdf/xpdf-cyrillic.tar.gz
+	ftp://ftp.foolabs.com/pub/xpdf/xpdf-greek.tar.gz
+	ftp://ftp.foolabs.com/pub/xpdf/xpdf-hebrew.tar.gz
+	ftp://ftp.foolabs.com/pub/xpdf/xpdf-japanese.tar.gz
+	ftp://ftp.foolabs.com/pub/xpdf/xpdf-korean.tar.gz
+	ftp://ftp.foolabs.com/pub/xpdf/xpdf-latin2.tar.gz
+	ftp://ftp.foolabs.com/pub/xpdf/xpdf-thai.tar.gz
+	ftp://ftp.foolabs.com/pub/xpdf/xpdf-turkish.tar.gz
 "
 SRC_DIR=${P%pl*}
 
+case ${PV} in *pl*)
 for pl in $(seq 1 ${PV##*pl})
 do
 	PATCH_URI+=" ftp://ftp.foolabs.com/pub/xpdf/${P%pl*}pl${pl}.patch"
 done
+esac
+PATCH_URI+=" 3.03-gcc45.patch"
 
 src_compile() {
 	cd ${S}

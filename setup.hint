@@ -1,5 +1,5 @@
 category: Graphics
-requires: libfreetype6 libgcc1 libpaper1 libstdc++6 libX11_6 libXm2 libXt6 t1lib5 poppler
+requires: libfreetype6 libgcc1 libpaper1 libstdc++6 libX11_6 libXm2 libXt6 poppler
 sdesc: "X11 PDF viewer"
 ldesc: "Xpdf is an open source viewer for Portable Document Format (PDF) 
 files. The Xpdf project also includes a PDF text extractor, 
