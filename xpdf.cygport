@@ -1,72 +1,62 @@
-# Adapted from Cygwin Ports project: http://cygwinports.dotsrc.org/
-
 NAME="xpdf"
-VERSION="3.04"
-RELEASE="1"
+VERSION=4.00
+RELEASE=1
 CATEGORY="X11 Doc"
 SUMMARY="An open source viewer for Portable Document Format (PDF) files"
 DESCRIPTION="Xpdf is an open source viewer for Portable Document Format (PDF)
-files. (These are also sometimes also called 'Acrobat' files, from the
-name of Adobe's PDF software.) The Xpdf project also includes a PDF text
-extractor, PDF-to-PostScript converter, and various other utilities. Xpdf
-runs under the X Window System on UNIX, VMS, and OS/2. The non-X components
-(pdftops, pdftotext, etc.) also run on Win32 systems and should run on pretty
-much any system with a decent C++ compiler. Xpdf is designed to be small and
-efficient. It can use Type 1 or TrueType fonts."
+files.  (These are also sometimes called 'Acrobat' files, from the
+name of Adobe's PDF software.)  The Xpdf viewer uses the Qt
+cross-platform GUI toolkit.  The Xpdf project also includes a PDF text
+extractor, PDF-to-PostScript converter, and various other utilities.
+These are not included in the Cygwin xpdf package because poppler
+provides similar utilities."
 
-HOMEPAGE="http://www.foolabs.com/${PN}/"
+HOMEPAGE="http://www.xpdfreader.com/"
 SRC_URI="
-	ftp://ftp.foolabs.com/pub/${PN}/${P}.tar.gz
-	ftp://ftp.foolabs.com/pub/${PN}/${P}.tar.gz.sig
-	ftp://ftp.foolabs.com/pub/${PN}/${PN}-arabic-2011-aug-15.tar.gz
-	ftp://ftp.foolabs.com/pub/${PN}/${PN}-chinese-simplified-2011-sep-02.tar.gz
-	ftp://ftp.foolabs.com/pub/${PN}/${PN}-chinese-traditional-2011-sep-02.tar.gz
-	ftp://ftp.foolabs.com/pub/${PN}/${PN}-cyrillic-2011-aug-15.tar.gz
-	ftp://ftp.foolabs.com/pub/${PN}/${PN}-greek-2011-aug-15.tar.gz
-	ftp://ftp.foolabs.com/pub/${PN}/${PN}-hebrew-2011-aug-15.tar.gz
-	ftp://ftp.foolabs.com/pub/${PN}/${PN}-japanese-2011-sep-02.tar.gz
-	ftp://ftp.foolabs.com/pub/${PN}/${PN}-korean-2011-sep-02.tar.gz
-	ftp://ftp.foolabs.com/pub/${PN}/${PN}-latin2-2011-aug-15.tar.gz
-	ftp://ftp.foolabs.com/pub/${PN}/${PN}-thai-2011-aug-15.tar.gz
-	ftp://ftp.foolabs.com/pub/${PN}/${PN}-turkish-2011-aug-15.tar.gz
-"
-PATCH_URI="
-  xpdf.xpdfrc.patch
+	${HOMEPAGE}/dl/${P}.tar.gz
+	${HOMEPAGE}/dl/${PN}-arabic.tar.gz
+	${HOMEPAGE}/dl/${PN}-chinese-simplified.tar.gz
+	${HOMEPAGE}/dl/${PN}-chinese-traditional.tar.gz
+	${HOMEPAGE}/dl/${PN}-cyrillic.tar.gz
+	${HOMEPAGE}/dl/${PN}-greek.tar.gz
+	${HOMEPAGE}/dl/${PN}-hebrew.tar.gz
+	${HOMEPAGE}/dl/${PN}-japanese.tar.gz
+	${HOMEPAGE}/dl/${PN}-korean.tar.gz
+	${HOMEPAGE}/dl/${PN}-latin2.tar.gz
+	${HOMEPAGE}/dl/${PN}-thai.tar.gz
+	${HOMEPAGE}/dl/${PN}-turkish.tar.gz
 "
 
-# Build dependencies only
-DEPEND="libXm-devel"
+inherit cmake
 
-
-DIFF_EXCLUDES="configure"
-
-CYGCONF_ARGS="
-  --enable-a4-paper
-  --enable-opi
-  --enable-multithreaded
-  --enable-cmyk
-  --with-freetype2-includes=/usr/include/freetype2
+# Don't try to use lcms2; it's not supported in the open-source version.
+CYGCMAKE_ARGS="
+	-DUSE_LIBPAPER=ON
+	-DA4_PAPER=ON
+	-DOPI_SUPPORT=ON
+	-DSPLASH_CMYK=ON
+	-DSYSTEM_XPDFRC=/etc/xpdfrc
 "
 
-src_compile() {
-	cd ${S}
-	autoconf
-	lndirs
-	cd ${B}
-	cygconf
-	cygmake
-}
+PATCH_URI="xpdfrc.patch"
+PATCH_URI+=" libpaper.patch"
 
-src_test() {
-	:
-}
+DEPEND="cmake libQt5Core-devel libQt5Gui-devel libpaper-devel libfreetype-devel"
+
+REQUIRES="libQt5Svg5"		# Needed for the toolbar icons.
 
 src_install() {
 	cd ${B}
 	cyginstall
-	
-	# For the following deletions see --> http://cygwin.com/ml/cygwin-apps/2012-02/msg00148.html
-	rm -fr ${D}/usr/{bin,share/man/man1}/pdf*
+	insinto	/etc
+	newins ${S}/doc/sample-xpdfrc xpdfrc
+
+	# For the following deletions see
+	# http://cygwin.com/ml/cygwin-apps/2012-02/msg00148.html.  We
+	# use 'man' instead of 'share/man' because the man pages
+	# initially get installed in /usr/man and are later moved to
+	# /usr/share/man by cygport.
+	rm -fr ${D}/usr/{bin,man/man1}/pdf*
 
 	for l in arabic chinese-simplified chinese-traditional cyrillic greek \
 	         hebrew japanese korean latin2 thai turkish
