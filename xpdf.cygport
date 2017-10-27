@@ -1,0 +1,99 @@
+# Adapted from Cygwin Ports project: http://cygwinports.dotsrc.org/
+
+NAME="xpdf"
+VERSION="3.04"
+RELEASE="1"
+CATEGORY="X11 Doc"
+SUMMARY="An open source viewer for Portable Document Format (PDF) files"
+DESCRIPTION="Xpdf is an open source viewer for Portable Document Format (PDF)
+files. (These are also sometimes also called 'Acrobat' files, from the
+name of Adobe's PDF software.) The Xpdf project also includes a PDF text
+extractor, PDF-to-PostScript converter, and various other utilities. Xpdf
+runs under the X Window System on UNIX, VMS, and OS/2. The non-X components
+(pdftops, pdftotext, etc.) also run on Win32 systems and should run on pretty
+much any system with a decent C++ compiler. Xpdf is designed to be small and
+efficient. It can use Type 1 or TrueType fonts."
+
+HOMEPAGE="http://www.foolabs.com/${PN}/"
+SRC_URI="
+	ftp://ftp.foolabs.com/pub/${PN}/${P}.tar.gz
+	ftp://ftp.foolabs.com/pub/${PN}/${P}.tar.gz.sig
+	ftp://ftp.foolabs.com/pub/${PN}/${PN}-arabic-2011-aug-15.tar.gz
+	ftp://ftp.foolabs.com/pub/${PN}/${PN}-chinese-simplified-2011-sep-02.tar.gz
+	ftp://ftp.foolabs.com/pub/${PN}/${PN}-chinese-traditional-2011-sep-02.tar.gz
+	ftp://ftp.foolabs.com/pub/${PN}/${PN}-cyrillic-2011-aug-15.tar.gz
+	ftp://ftp.foolabs.com/pub/${PN}/${PN}-greek-2011-aug-15.tar.gz
+	ftp://ftp.foolabs.com/pub/${PN}/${PN}-hebrew-2011-aug-15.tar.gz
+	ftp://ftp.foolabs.com/pub/${PN}/${PN}-japanese-2011-sep-02.tar.gz
+	ftp://ftp.foolabs.com/pub/${PN}/${PN}-korean-2011-sep-02.tar.gz
+	ftp://ftp.foolabs.com/pub/${PN}/${PN}-latin2-2011-aug-15.tar.gz
+	ftp://ftp.foolabs.com/pub/${PN}/${PN}-thai-2011-aug-15.tar.gz
+	ftp://ftp.foolabs.com/pub/${PN}/${PN}-turkish-2011-aug-15.tar.gz
+"
+PATCH_URI="
+  xpdf.xpdfrc.patch
+"
+
+# Build dependencies only
+DEPEND="libXm-devel"
+
+
+DIFF_EXCLUDES="configure"
+
+CYGCONF_ARGS="
+  --enable-a4-paper
+  --enable-opi
+  --enable-multithreaded
+  --enable-cmyk
+  --with-freetype2-includes=/usr/include/freetype2
+"
+
+src_compile() {
+	cd ${S}
+	autoconf
+	lndirs
+	cd ${B}
+	cygconf
+	cygmake
+}
+
+src_test() {
+	:
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+	
+	# For the following deletions see --> http://cygwin.com/ml/cygwin-apps/2012-02/msg00148.html
+	rm -fr ${D}/usr/{bin,share/man/man1}/pdf*
+
+	for l in arabic chinese-simplified chinese-traditional cyrillic greek \
+	         hebrew japanese korean latin2 thai turkish
+	do
+		cd ${S}/../${PN}-${l}
+		
+		newdoc README README.${l}
+
+		echo >> ${D}/etc/xpdfrc
+		cat add-to-xpdfrc >> ${D}/etc/xpdfrc
+
+		insinto /usr/share/${PN}/${l}
+		doins *.unicodeMap
+
+		if [ -f *.nameToUnicode ]
+		then
+			doins *.nameToUnicode
+		fi
+
+		if [ -d CMap ]
+		then
+			doins *.cidToUnicode
+			cp -r CMap ${D}/usr/share/${PN}/${l}/
+		fi
+	done
+
+	sed -e 's#/usr/local/share/xpdf#/usr/share/xpdf#g' -i ${D}/etc/xpdfrc
+
+	make_etc_defaults /etc/xpdfrc
+}
