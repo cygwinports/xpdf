@@ -1,0 +1,20 @@
+--- origsrc/xpdf-4.00/xpdf/GlobalParams.cc	2017-08-08 18:22:50.000000000 -0500
++++ src/xpdf-4.00/xpdf/GlobalParams.cc	2017-11-06 03:18:35.636604800 -0600
+@@ -1970,6 +1970,8 @@ void GlobalParams::setupBaseFonts(const
+   Base14FontInfo *base14;
+ #ifdef _WIN32
+   char winFontDir[MAX_PATH];
++#elif defined(__CYGWIN__)
++  char winFontDir[] = "/usr/share/fonts/microsoft";
+ #endif
+ #ifdef __APPLE__
+   static const char *macFontExts[3] = { "dfont", "ttc", "ttf" };
+@@ -2002,7 +2004,7 @@ void GlobalParams::setupBaseFonts(const
+ 	fileName = NULL;
+       }
+     }
+-#ifdef _WIN32
++#if defined(_WIN32) || defined(__CYGWIN__)
+     if (!fileName && winFontDir[0] && displayFontTab[i].ttFileName) {
+       fileName = appendToPath(new GString(winFontDir),
+ 			      displayFontTab[i].ttFileName);

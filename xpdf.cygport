@@ -1,6 +1,6 @@
 NAME="xpdf"
 VERSION=4.00
-RELEASE=1
+RELEASE=2
 CATEGORY="X11 Doc"
 SUMMARY="An open source viewer for Portable Document Format (PDF) files"
 DESCRIPTION="Xpdf is an open source viewer for Portable Document Format (PDF)
@@ -25,6 +25,9 @@ SRC_URI="
 	${HOMEPAGE}/dl/${PN}-latin2.tar.gz
 	${HOMEPAGE}/dl/${PN}-thai.tar.gz
 	${HOMEPAGE}/dl/${PN}-turkish.tar.gz
+"
+PATCH_URI="
+	4.00-urw-base35-fonts.patch
 "
 
 inherit cmake
